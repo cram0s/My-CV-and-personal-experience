@@ -10,15 +10,15 @@ import warnings
 warnings.filterwarnings('ignore')
 
 con = pymysql.connect(host='localhost',
-                      user='root',
-                      password='root',
+                      user='***',
+                      password='***',
                       charset='utf8mb4',
-                      db='forecast1',
+                      db='***',
                       cursorclass=pymysql.cursors.DictCursor)
 print('Подключение к базе данных прошло успешно!')
 
 with con.cursor() as cursor:
-    cursor.execute("select * from complete_no_null_water5")
+    cursor.execute("***")
     lst = cursor.fetchall()
     df = pd.DataFrame(lst)
     df = df[
