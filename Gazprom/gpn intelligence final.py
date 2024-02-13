@@ -62,7 +62,6 @@ for place in places:
         X_train, X_test = X.iloc[:split_index], X.iloc[split_index:]
         y_train, y_test = y.iloc[:split_index], y.iloc[split_index:]
 
-        # MinMax Scaling
         scaler_X = MinMaxScaler(feature_range=(0, 1))
         scaler_y = MinMaxScaler(feature_range=(0, 1))
 
@@ -72,7 +71,6 @@ for place in places:
         y_train_scaled = scaler_y.fit_transform(y_train.values.reshape(-1, 1))
         y_test_scaled = scaler_y.transform(y_test.values.reshape(-1, 1))
 
-        # Reshape input data to be 3D [samples, timesteps, features]
         X_train_scaled = np.reshape(X_train_scaled, (X_train_scaled.shape[0], X_train_scaled.shape[1], 1))
         X_test_scaled = np.reshape(X_test_scaled, (X_test_scaled.shape[0], X_test_scaled.shape[1], 1))
 
@@ -134,10 +132,8 @@ for place in places:
                 y_pred = model.predict(X_pred)
                 X_pred = np.append(X_pred[:, 1:, :], y_pred.reshape((1, 1, 1)), axis=1)
 
-                # Обратное масштабирование данных
                 y_pred = scaler_y.inverse_transform(y_pred)
 
-                # Запись предсказаний в датафрейм
                 predictions_df = pd.concat([
                     predictions_df,
                     pd.DataFrame({
@@ -152,7 +148,6 @@ for place in places:
 
         predictions_df.to_excel('predicted_prices1.xlsx', index=False)
 
-# Сортировка датафрейма по дате
 predictions_df = predictions_df.sort_values(by=['Competitor', 'Place', 'Product', 'Date']).reset_index(drop=True)
 
 pivot_df = predictions_df.pivot(index=['Place', 'Product', 'Date'], columns='Competitor',
@@ -173,7 +168,7 @@ blocks = [df.iloc[i:i + 3].copy() for i in range(0, len(df), 3)]
 # Создание списка для хранения результатов
 min_values = []
 
-# Обработка каждого блока
+# Обработка  блока
 for block in blocks:
     # Нахождение максимального значения в каждой строке (кроме 'Date')
     max_values = block.drop('Date', axis=1).apply(pd.to_numeric, errors='coerce').max(axis=1)
@@ -195,28 +190,28 @@ result_df['my_price'] = result_df['min_value'] * 1.18
 df['my_price'] = result_df['my_price'].repeat(3).reset_index(drop=True)
 
 # Цикл для сравнения и изменения значений столбца 'my_price'
-# for i in range(1, len(result_df)):
-#     # Проверка условия: разница больше чем 1 и номер строки кратен 30
-#     if abs(result_df['my_price'].iloc[i] - result_df['my_price'].iloc[i-1]) > 1 and (i) % 30 == 0:
-#         # Ничего не делаем, так как условие выполняется
-#         pass
-#     else:
-#         # Проверка разницы больше чем 1 в блоке else
-#         if abs(result_df['my_price'].iloc[i] - result_df['my_price'].iloc[i-1]) > 1:
-#             # Изменяем значение на my_price[i] = my_price[i-1] + 1 или -1
-#             result_df['my_price'].iloc[i] = result_df['my_price'].iloc[i-1] + 1 if result_df['my_price'].iloc[i] > result_df['my_price'].iloc[i-1] else result_df['my_price'].iloc[i-1] - 1
-#
-#
-# print(result_df)
+for i in range(1, len(result_df)):
+    # Проверка условия: разница больше чем 1 и номер строки кратен 30
+    if abs(result_df['my_price'].iloc[i] - result_df['my_price'].iloc[i-1]) > 1 and (i) % 30 == 0:
+        # Ничего не делаем, так как условие выполняется
+        pass
+    else:
+        # Проверка разницы больше чем 1 в блоке else
+        if abs(result_df['my_price'].iloc[i] - result_df['my_price'].iloc[i-1]) > 1:
+            # Изменяем значение на my_price[i] = my_price[i-1] + 1 или -1
+            result_df['my_price'].iloc[i] = result_df['my_price'].iloc[i-1] + 1 if result_df['my_price'].iloc[i] > result_df['my_price'].iloc[i-1] else result_df['my_price'].iloc[i-1] - 1
 
 
-# # Добавление столбца my_price в основной датафрейм
-# df['my_price'] = result_df['my_price'].repeat(3).reset_index(drop=True)
-# diff_mask = np.abs(df['my_price'].diff()) > 1
-#
-# # Выводим строки, где значения отличаются больше чем на 1
-# print(df[diff_mask])
-# df[diff_mask].to_excel('anomaly.xlsx')
+print(result_df)
+
+
+# Добавление столбца my_price в основной датафрейм
+df['my_price'] = result_df['my_price'].repeat(3).reset_index(drop=True)
+diff_mask = np.abs(df['my_price'].diff()) > 1
+
+# Выводим строки, где значения отличаются больше чем на 1
+print(df[diff_mask])
+df[diff_mask].to_excel('anomaly.xlsx')
 # Вывод окончательного результата
 df = df.iloc[:, [0, 1, 2, -1]]
 df.to_excel('final1.xlsx')
