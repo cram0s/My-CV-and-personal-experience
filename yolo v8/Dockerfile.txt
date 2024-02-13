@@ -1,0 +1,18 @@
+FROM python:3.9
+
+
+# Скопируйте код и модель в контейнер
+COPY . /app
+COPY images /app/images/
+COPY weights/yolo.pt /app
+
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
+RUN pip install ultralytics matplotlib pandas numpy Pillow
+
+RUN mkdir /app/private
+
+
+WORKDIR /app
+
+CMD ["python", "yolo.py"]
