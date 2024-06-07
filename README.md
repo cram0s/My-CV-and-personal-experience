@@ -14,6 +14,17 @@ ClickHouse, Teamwork, Git, MySQL, NoSQL, PostgreSQL, PyTorch, Keras, TensorFlow,
 
 ## Working experience, projects and case championships:
 
+### INTERNSHIP AT GLOWBYTE
+Field - Applied MLOps
+Worked with PySpark, Docker, Kubernetes, CI/CD processes, Airflow, MLflow
+For the final project, a cookiecutter template was created for data scientists to compare a retrained model in production with an AutoML script (PyCaret) - link to the template on GitHub.
+https://git.angara.cloud/a2p-demo-prod/a2p-demo-prod/project-trainee/automl-dag
+
+### Cup IT - High Quality Award - 15%
+Served as the project architect
+Conducted dataset analysis and identified key insights
+Designed a solution to increase SKU profitability for P&G by transferring information from merchandisers' phones (OpenCV) to Airflow for data orchestration, followed by the construction of an optimal store planogram
+
 ### Cup Moscow 2023
 
 High quality award - 25%
@@ -65,3 +76,7 @@ choice with the best accuracy.**
 - Parsing of the company's website using Python(BS4, json, xml, requests)
 - Autonomous loading of objects into CRM system
 - Creating presentations (Figma) for clients
+
+### THE EXPERTS - SCHOOL OF ANALYTICS
+Graduated with honors from the grant track of the School of Analytics
+
