@@ -9,7 +9,7 @@ Rating - 8/221 (after 3 semester)
 ## My stack:
 
 Python, SQL, Machine Learning, Git, Airflow, Mlflow, Data Science, Linux, Mathematical Analysis,
-Pandas, Numpy, Math Statistics, DataLens, Teamwork, PostgreSQL, PyTorch, TensorFlow, Docker, Kubernetes, CI/CD, PySpark, Hadoop
+Pandas, Numpy, Math Statistics, BI Analytics, Teamwork, PostgreSQL, PyTorch, TensorFlow, Docker, Kubernetes, CI/CD, PySpark, Hadoop
 
 ## Working experience, projects and case championships:
 
