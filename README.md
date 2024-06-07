@@ -80,5 +80,5 @@ choice with the best accuracy.**
 Graduated with honors from the grant track of the School of Analytics
 
 ### CASE SCHOOL OF THE FINANCIAL UNIVERSITY
-Graduated with the 'B' diploma form the case school
+Graduated with the 'B' diploma from the case school
 
