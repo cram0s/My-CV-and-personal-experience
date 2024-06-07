@@ -8,16 +8,15 @@ Rating - 8/221 (after 3 semester)
 
 ## My stack:
 
-Python, SQL, Machine Learning, Data analysis, Working with databases, Analytical thinking, Linux, Mathematical Analysis,
-Data Mining, Pandas, Big Data, Statistics, Data Science, Business Intelligence Systems, Numpy, DataLens, SuperSet,
-ClickHouse, Teamwork, Git, MySQL, NoSQL, PostgreSQL, PyTorch, Keras, TensorFlow, PySpark, Hadoop, Critical thinking
+Python, SQL, Machine Learning, Git, Airflow, Mlflow, Data Science, Linux, Mathematical Analysis,
+Pandas, Numpy, Math Statistics, DataLens, Teamwork, PostgreSQL, PyTorch, TensorFlow, Docker, Kubernetes, CI/CD, PySpark, Hadoop
 
 ## Working experience, projects and case championships:
 
 ### INTERNSHIP AT GLOWBYTE
 - Field - Applied MLOps
 - Worked with PySpark, Docker, Kubernetes, CI/CD processes, Airflow, MLflow
-- For the final project, a cookiecutter template was created for data scientists to compare a retrained model in production with an AutoML script (PyCaret) - link to the template on GitHub.
+- For the final project, a cookiecutter template was created for data scientists to compare a retrained model in production with an AutoML script (PyCaret)
 https://git.angara.cloud/a2p-demo-prod/a2p-demo-prod/project-trainee/automl-dag
 
 ### Cup IT - High Quality Award - 15%
@@ -79,4 +78,7 @@ choice with the best accuracy.**
 
 ### THE EXPERTS - SCHOOL OF ANALYTICS
 Graduated with honors from the grant track of the School of Analytics
+
+### CASE SCHOOL OF THE FINANCIAL UNIVERSITY
+Graduated with the 'B' diploma form the case school
 
